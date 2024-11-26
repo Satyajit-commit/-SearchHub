@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SATYAJIT SEARCH ENGINE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #695309;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #3e84c1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li strong {
+            color: #007bff;
+        }
+
+        ul li span {
+            display: block;
+            color: #555;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Computer basic knowladge</h1>
+        <input type="text" id="searchBar" placeholder="Search..." oninput="search()">
+        <ul id="results"></ul>
+    </div>
+
+    <script>
+        const searchData = [
+            // satyajit things
+            { question: "who is Satyajit", answer: " Satyajit is a diploma student specializing in Computer Science. He is focused on building foundational knowledge in programming, software development, and computer systems, aiming to excel in the field of technology. As a student, Satyajit is likely exploring various aspects of computing, including coding, algorithms, and possibly hands-on projects, which prepare him for future academic or professional opportunities in the tech industry." },
+
+            // Programming Questions
+            { question: "What is a programming language?", answer: "A programming language is used to write instructions for computers to execute." },
+            { question: "What is JavaScript?", answer: "JavaScript is a versatile programming language mainly used in web development." },
+            { question: "What is Python?", answer: "Python is a high-level programming language known for its simplicity and readability." },
+            { question: "What is an algorithm?", answer: "An algorithm is a step-by-step process to solve a specific problem." },
+            { question: "Who is developed  c language", answer: "C is Developed by Denis Ritch" },
+            { question: "who is developed java Language", answer: "Java was developed by James Gosling" },
+            { question: "who is developed Python", answer: "Python was created by Guido van Rossum,first released on Frebuary 20,1991.while you may know the python as a large snake,the name of the python programming language comes from an old BBC televison comedy sketch series called monty pythons flying circus" },
+
+
+            // Web Development Questions
+            { question: "What is HTML?", answer: "HTML stands for HyperText Markup Language and is used to structure web pages." },
+            { question: "What is CSS?", answer: "CSS is used to style HTML elements and make web pages visually appealing." },
+            { question: "What is responsive web design?", answer: "Responsive design ensures web pages look good on all devices, from desktops to mobile phones." },
+
+            // Networking Questions
+            { question: "What is a computer network?", answer: "A computer network is a group of interconnected computers that share resources." },
+            { question: "What is an IP address?", answer: "An IP address is a unique identifier for a device on a network." },
+            { question: "What is DNS?", answer: "DNS (Domain Name System) translates domain names to IP addresses." },
+            { question: "What is HTTP?", answer: "HTTP (HyperText Transfer Protocol) is the foundation of data communication on the web." },
+
+            // Operating Systems Questions
+            { question: "What is an operating system?", answer: "An operating system is software that manages computer hardware and software resources." },
+            { question: "What is Linux?", answer: "Linux is an open-source operating system known for its stability and security." },
+            { question: "What is Windows?", answer: "Windows is a popular operating system developed by Microsoft." },
+            { question: "What is macOS?", answer: "macOS is an operating system developed by Apple for their Mac computers." },
+
+            // Computer Hardware Questions
+            { question: "What is a CPU?", answer: "The CPU (Central Processing Unit) is the brain of the computer that performs calculations and tasks." },
+            { question: "What is RAM?", answer: "RAM (Random Access Memory) is temporary memory used to store data for running applications." },
+            { question: "What is an SSD?", answer: "An SSD (Solid State Drive) is a fast storage device used in modern computers." },
+            { question: "What is a GPU?", answer: "A GPU (Graphics Processing Unit) is used for rendering images and videos." },
+
+            // Miscellaneous Questions
+            { question: "What is cloud computing?", answer: "Cloud computing provides on-demand computing services over the internet." },
+            { question: "What is cybersecurity?", answer: "Cybersecurity is the practice of protecting systems and networks from digital attacks." },
+            { question: "What is artificial intelligence?", answer: "Artificial intelligence is the simulation of human intelligence in machines." },
+            { question: "What is a database?", answer: "A database is an organized collection of data for easy access, management, and updating." },
+            { question: "What is machine learning?", answer: "Machine learning is a subset of AI that enables systems to learn from data and improve over time." }
+        ];
+
+        function search() {
+            const query = document.getElementById("searchBar").value.toLowerCase();
+            const resultsList = document.getElementById("results");
+            resultsList.innerHTML = "";
+
+            searchData.forEach(item => {
+                if (item.question.toLowerCase().includes(query)) {
+                    const listItem = document.createElement("li");
+                    listItem.innerHTML = `<strong>${item.question}</strong><span>${item.answer}</span>`;
+                    resultsList.appendChild(listItem);
+                }
+            });
+
+            if (!resultsList.hasChildNodes() && query !== "") {
+                resultsList.innerHTML = "<li>No results found</li>";
+            }
+        }
+    </script>
+</body>
+
+</html>
